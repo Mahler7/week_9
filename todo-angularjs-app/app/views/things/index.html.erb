@@ -1,0 +1,48 @@
+<div ng-app="app">
+  {{ 1 + 1 }}
+  <div ng-controller="thingsCtrl">
+    {{ message }}
+    <input ng-model="message">
+  
+
+    <div class="reviews">
+      <h2>AngularJS Reviews</h2>
+        <ul>
+          <li>{{ review1 }}</li>
+          <li>{{ review2 }}</li>
+          <li>{{ review3 }}</li>
+        </ul>
+        <ul>
+          <li>{{ reviews[0] }}</li>
+          <li>{{ reviews[1] }}</li>
+          <li>{{ reviews[2] }}</li>
+        </ul>
+        <ul>
+          <li ng-repeat="review in reviews">
+            {{ review }}
+            <input ng-model="review"></li>
+        </ul>
+
+        <input ng-model="newReview">
+        <button ng-click="addReview(newReview)">Add Review</button>
+        
+    </div>
+
+    <div class="todo">
+      <h2>To Do List</h2>
+        <ul> 
+          <li ng-repeat = "todo in todos"> {{ todo }}
+          <input ng-model="todo"></li>
+        </ul>
+
+        <input ng-model="newTask">
+        <button ng-click="addTask(newTask)">Add Task</button>
+
+        <button ng-click="clearTask(newTask)" value = "delete" >Clear Task</button>
+        
+        <button ng-click="removeTask(newTask)">Delete Task</button>
+    </div>
+
+  </div>
+
+</div>
