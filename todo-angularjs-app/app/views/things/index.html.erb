@@ -12,26 +12,30 @@
           <li>{{ review2 }}</li>
           <li>{{ review3 }}</li>
         </ul>
-        <ul>
-          <li>{{ reviews[0] }}</li>
-          <li>{{ reviews[1] }}</li>
-          <li>{{ reviews[2] }}</li>
-        </ul>
+.
         <ul>
           <li ng-repeat="review in reviews">
-            {{ review }}
-            <input ng-model="review"></li>
+           Review {{ review.text }}
+           <br>
+           Reviewer {{ review.reviewer }}
+           <br>
+           Rating {{ review.rating }}
+           <br>
+          <input ng-model="review.text"></li>
         </ul>
 
-        <input ng-model="newReview">
-        <button ng-click="addReview(newReview)">Add Review</button>
+       Review: <input ng-model="newReviewText">
+       Reviewer: <input ng-model="newReviewReviewer">
+       Rating: <input ng-model="newReviewRating">
+        <br>
+        <button ng-click="addReview(newReviewText, newReviewReviewer, newReviewRating)">Add Review</button>
         
     </div>
 
     <div class="todo">
       <h2>To Do List</h2>
         <ul> 
-          <li ng-repeat = "todo in todos"> {{ todo }}
+          <li ng-repeat = "todo in todos track by $index" ng-click="deleteTask($index)"> {{ todo }}
           <input ng-model="todo"></li>
         </ul>
 
@@ -41,6 +45,7 @@
         <button ng-click="clearTask(newTask)" value = "delete" >Clear Task</button>
         
         <button ng-click="removeTask(newTask)">Delete Task</button>
+
     </div>
 
   </div>

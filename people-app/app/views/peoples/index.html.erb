@@ -1,0 +1,21 @@
+<div ng-app="app">
+  <div ng-controller="peoplesCtrl">
+    <div class="peoples">
+      <h1>Interesting People</h1>
+        <ul>
+          <li ng-repeat="people in peoples">
+          Person {{ people.name }}
+          <br>
+          Bio: {{ people.bio }}
+          <br>
+        </ul>
+        Name <input ng-model="peopleName"></li><br>
+        Bio <input ng-model="peopleBio"></li><br>
+        <button ng-click="addPeoples(peopleName, peopleBio)">Add Person</button>
+
+        <p>People {{ peoples.length }}</p>
+
+    </div>
+  </div>
+</div>
+
