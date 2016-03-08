@@ -1,3 +1,21 @@
 // Place all the styles related to the peoples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.strike {
+  text-decoration: line-through;
+}
+
+.ng-enter, .ng-move{
+  -webkit-animation: hinge 1s;
+  -moz-animation: hinge 1s;
+  -o-animation: hinge 1s;
+  animation: hinge 1s;
+}
+
+.ng-leave{
+  -webkit-animation: fadeOut 1s;
+  -moz-animation: fadeOut 1s;
+  -o-animation: fadeOut 1s;
+  animation: fadeOut 1s;
+}

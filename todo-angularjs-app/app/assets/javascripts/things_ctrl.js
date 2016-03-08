@@ -55,6 +55,45 @@
       $scope.tasks.splice(index, 1)
     };
 
+    $scope.items = [];
+
+    $scope.addItem = function(item) {
+      var newItem = {
+        item: item,
+        completed: false
+      };
+
+      $scope.items.push(newItem);
+
+    };
+
+    $scope.toggle = function(item) {
+      item.completed = !item.completed
+    };
+
+    $scope.numberOfIncompleteItems = function(){
+      var count = 0;
+      for(var i = 0; i < $scope.items.length; i++){
+        if(!$scope.items[i].completed){
+          count += 1;
+        }
+      }
+    };
+
+    $scope.removeCompletedItems = function() {
+      var completedItems = [];
+
+      for(var index = 0; index < $scope.items.length; index++) {
+        if($scope.items[index].completed) {
+          completedItems.push($scope.items[index]);
+        }
+      }
+
+      for(var index = 0; index < completedItems.length; index++) {
+        $scope.items.splice($scope.items.indexOf(completedItems[index],1);
+      }
+    };
+
     window.scope = $scope;
 
   });

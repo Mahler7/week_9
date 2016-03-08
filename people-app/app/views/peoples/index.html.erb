@@ -1,15 +1,27 @@
 <div ng-app="app">
-  <div ng-controller="peoplesCtrl">
+  <div ng-controller="peoplesCtrl" ng-init="setup()">
     <div class="peoples">
       <h1>Interesting People</h1>
+      <input ng-model="nameFilter" list="names">
+
+        <datalist id="names">
+          <option ng-repeat="people in peoples">{{ people.name }}</option>
+        </datalist>
+
+      <button ng-click="sortBy('name')">Sort By Name</button>
+      
+      <button ng-click="sortBy('bio')">Sort By Bio</button>
         <ul>
-          <li ng-repeat="people in peoples">
-          Person {{ people.name }}
-          <br>
-          Bio: {{ people.bio }}
-          <br>
+          <li ng-repeat="people in peoples |filter: {name: nameFilter} | orderBy:sortByAttribute:descending">
+            <p ng-click="toggle(people)"> {{people.name}} (<a ng-click="deletePeople(people)">Delete</a>)</p>
+            <br>
+            <p ng-if="people.bioVisible">{{people.bio}}</p>
+            <br>
+          </li>
         </ul>
-        Name <input ng-model="peopleName"></li><br>
+        <div>
+          Name <input ng-model="peopleName"></li><br>
+        </div>
         Bio <input ng-model="peopleBio"></li><br>
         <button ng-click="addPeoples(peopleName, peopleBio)">Add Person</button>
 

@@ -48,6 +48,27 @@
 
     </div>
 
+    <div>
+      <h1>Items</h1>
+      <div>
+        Item: <input ng-model="newItemName">
+        <br>
+        <button ng-click="addItem(newItemName)">Add Item</button>
+      </div>
+
+      <ul>
+        <li ng-repeat="item in items">
+          <p ng-click="toggle(item)"
+           ng-class="{strike: item.completed}"> {{item.item}}</p>
+        </li>
+      </ul>
+      <h3>Items Completed {{ numberOfIncompleteItems()}}
+
+      <div>
+        <button ng-click="removeCompletedItems()">Clear Completed Items
+    </div>
+
+
   </div>
 
 </div>
