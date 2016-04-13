@@ -1,17 +1,15 @@
 <div ng-app="app">
-  {{ 1 + 1 }}
   <div ng-controller="thingsCtrl">
-    {{ message }}
-    <input ng-model="message">
+    
   
 
     <div class="reviews">
       <h2>AngularJS Reviews</h2>
-        <ul>
+        <!-- <ul>
           <li>{{ review1 }}</li>
           <li>{{ review2 }}</li>
           <li>{{ review3 }}</li>
-        </ul>
+        </ul> -->
 .
         <ul>
           <li ng-repeat="review in reviews">
@@ -62,7 +60,7 @@
            ng-class="{strike: item.completed}"> {{item.item}}</p>
         </li>
       </ul>
-      <h3>Items Completed {{ numberOfIncompleteItems()}}
+      <!-- <h3>Items Completed {{ numberOfIncompleteItems()}} -->
 
       <div>
         <button ng-click="removeCompletedItems()">Clear Completed Items
